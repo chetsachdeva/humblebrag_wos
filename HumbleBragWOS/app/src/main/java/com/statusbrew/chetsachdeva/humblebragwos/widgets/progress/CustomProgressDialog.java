@@ -1,0 +1,44 @@
+package com.statusbrew.chetsachdeva.humblebragwos.widgets.progress;
+
+import android.app.Dialog;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.view.Window;
+import com.statusbrew.chetsachdeva.humblebragwos.R;
+
+
+/**
+ * Created by ankushsharma on 02/07/15.
+ */
+public class CustomProgressDialog extends Dialog {
+    Context ctx;
+
+    public CustomProgressDialog(Context context) {
+        super(context);
+        this.ctx = context;
+        initializeView(ctx);
+    }
+
+    public CustomProgressDialog(Context context, int theme) {
+        super(context, theme);
+        this.ctx = context;
+        initializeView(ctx);
+    }
+
+    protected CustomProgressDialog(Context context, boolean cancelable, OnCancelListener cancelListener) {
+        super(context, cancelable, cancelListener);
+        this.ctx = context;
+        initializeView(ctx);
+    }
+
+    public void initializeView(Context ctx) {
+
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        this.setCancelable(false);
+        this.setContentView(R.layout.progress_dialog);
+    }
+
+
+}
