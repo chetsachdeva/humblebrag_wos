@@ -1,6 +1,7 @@
 package com.statusbrew.chetsachdeva.humblebragwos.get_tweets;
 
-import com.statusbrew.chetsachdeva.humblebragwos.webapi.models.TwitterTweet;
+import com.statusbrew.chetsachdeva.humblebragwos.webapi.models.get_tweets.GetTweetsResponse;
+import com.statusbrew.chetsachdeva.humblebragwos.webapi.models.get_tweets.TwitterTweet;
 
 import java.util.ArrayList;
 
@@ -14,7 +15,7 @@ public interface GetTweetsContract {
     interface View{
         void showProgress();
         void hideProgress();
-        void onGetTweetsSuccess(ArrayList<TwitterTweet> twitterTweets);
+        void onGetTweetsSuccess(ArrayList<GetTweetsResponse> twitterTweets);
         void onGetTweetsFailure(String message);
     }
 
@@ -23,7 +24,7 @@ public interface GetTweetsContract {
     }
 
     interface Listener{
-        void onGetTweetsSuccess(ArrayList<TwitterTweet> twitterTweets);
+        void onGetTweetsSuccess(ArrayList<GetTweetsResponse> twitterTweets);
         void onGetTweetsFailure(String message);
     }
 }

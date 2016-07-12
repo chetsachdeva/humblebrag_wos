@@ -1,7 +1,8 @@
 package com.statusbrew.chetsachdeva.humblebragwos.get_tweets;
 
 import com.statusbrew.chetsachdeva.humblebragwos.webapi.RestClient;
-import com.statusbrew.chetsachdeva.humblebragwos.webapi.models.TwitterTweet;
+import com.statusbrew.chetsachdeva.humblebragwos.webapi.models.get_tweets.GetTweetsResponse;
+import com.statusbrew.chetsachdeva.humblebragwos.webapi.models.get_tweets.TwitterTweet;
 
 import java.util.ArrayList;
 
@@ -15,9 +16,9 @@ import retrofit.client.Response;
 public class GetTweetsContractImpl implements GetTweetsContract {
     @Override
     public void getTweetsForScreenName(String screenName, int count, final Listener listener) {
-        RestClient.get().getTweetsForScreenName(screenName, String.valueOf(count), new Callback<ArrayList<TwitterTweet>>() {
+        RestClient.get().getTweetsForScreenName(screenName, String.valueOf(count), new Callback<ArrayList<GetTweetsResponse>>() {
             @Override
-            public void success(ArrayList<TwitterTweet> twitterTweets, Response response) {
+            public void success(ArrayList<GetTweetsResponse> twitterTweets, Response response) {
                 if(null!=twitterTweets){
                     if(twitterTweets.size()>0){
                         listener.onGetTweetsSuccess(twitterTweets);

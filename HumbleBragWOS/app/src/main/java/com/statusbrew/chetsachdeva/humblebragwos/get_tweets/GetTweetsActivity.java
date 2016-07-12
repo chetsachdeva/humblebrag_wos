@@ -8,7 +8,8 @@ import android.widget.Toast;
 
 import com.statusbrew.chetsachdeva.humblebragwos.R;
 import com.statusbrew.chetsachdeva.humblebragwos.adapters.GetTweetsAdapter;
-import com.statusbrew.chetsachdeva.humblebragwos.webapi.models.TwitterTweet;
+import com.statusbrew.chetsachdeva.humblebragwos.webapi.models.get_tweets.GetTweetsResponse;
+import com.statusbrew.chetsachdeva.humblebragwos.webapi.models.get_tweets.TwitterTweet;
 import com.statusbrew.chetsachdeva.humblebragwos.widgets.progress.CustomProgressDialog;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class GetTweetsActivity extends AppCompatActivity implements GetTweetsCon
     CustomProgressDialog progressDialog;
 
     LinearLayoutManager linearLayoutManager;
-    ArrayList<TwitterTweet> twitterTweetsList;
+    ArrayList<GetTweetsResponse> twitterTweetsList;
     GetTweetsAdapter getTweetsAdapter;
     GetTweetsContract.Presenter presenter;
 
@@ -72,7 +73,7 @@ public class GetTweetsActivity extends AppCompatActivity implements GetTweetsCon
     }
 
     @Override
-    public void onGetTweetsSuccess(ArrayList<TwitterTweet> twitterTweets) {
+    public void onGetTweetsSuccess(ArrayList<GetTweetsResponse> twitterTweets) {
         this.twitterTweetsList.addAll(twitterTweets);
         getTweetsAdapter.notifyDataSetChanged();
     }

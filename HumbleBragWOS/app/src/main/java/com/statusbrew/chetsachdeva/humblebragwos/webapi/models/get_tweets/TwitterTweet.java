@@ -1,4 +1,4 @@
-package com.statusbrew.chetsachdeva.humblebragwos.webapi.models;
+package com.statusbrew.chetsachdeva.humblebragwos.webapi.models.get_tweets;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -28,7 +28,7 @@ public class TwitterTweet {
 	public String getCreatedAt() {
 		return createdAt;
 	}
-	
+
 	public String getId() {
 		return id;
 	}
@@ -60,15 +60,15 @@ public class TwitterTweet {
 	public void setInReplyToScreenName(String inReplyToScreenName) {
 		this.inReplyToScreenName = inReplyToScreenName;
 	}
-	
+
 	public void setInReplyToStatusId(String inReplyToStatusId) {
 		this.inReplyToStatusId = inReplyToStatusId;
 	}
-	
+
 	public void setInReplyToUserId(String inReplyToUserId) {
 		this.inReplyToUserId = inReplyToUserId;
 	}
-	
+
 	public void setText(String text) {
 		this.text = text;
 	}
