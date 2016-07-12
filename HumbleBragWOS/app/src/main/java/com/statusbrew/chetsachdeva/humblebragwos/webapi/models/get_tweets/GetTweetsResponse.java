@@ -5,64 +5,34 @@ import com.google.gson.annotations.Expose;
 
 public class GetTweetsResponse {
 
-    @Expose
-    String coordinates;
-    @Expose
-    Boolean favorited;
-    @Expose
-    Boolean truncated;
-    @Expose
-    String created_at;
-    @Expose
-    String id_str;
-    @Expose
-    Entities entities;
-    @Expose
-    String in_reply_to_user_id_str;
-    @Expose
-    String contributors;
-    @Expose
-    String text;
-    @Expose
-    Integer retweet_count;
-    @Expose
-    String in_reply_to_status_id_str;
-    @Expose
-    Long id;
-    @Expose
-    String geo;
-    @Expose
-    Boolean retweeted;
-    @Expose
-    Boolean possibly_sensitive;
-    @Expose
-    String in_reply_to_user_id;
-    @Expose
-    String place;
-    @Expose
-    User user;
-    @Expose
-    String in_reply_to_screen_name;
-    @Expose
-    String source;
-    @Expose
-    String in_reply_to_status_id;
-    @Expose
-    public Retweeted_status retweeted_status;
+    @Expose Object coordinates;
+    @Expose Boolean favorited;
+    @Expose Boolean truncated;
+    @Expose String created_at;
+    @Expose String id_str;
+    @Expose Entities entities;
+    @Expose Object in_reply_to_user_id_str;
+    @Expose Object contributors;
+    @Expose String text;
+    @Expose Integer retweet_count;
+    @Expose Object in_reply_to_status_id_str;
+    @Expose Long id;
+    @Expose Object geo;
+    @Expose Boolean retweeted;
+    @Expose Boolean possibly_sensitive;
+    @Expose Object in_reply_to_user_id;
+    @Expose Object place;
+    @Expose User user;
+    @Expose Object in_reply_to_screen_name;
+    @Expose String source;
+    @Expose Object in_reply_to_status_id;
+    @Expose Retweeted_status retweeted_status;
 
-    public Retweeted_status getRetweeted_status() {
-        return retweeted_status;
-    }
-
-    public void setRetweeted_status(Retweeted_status retweeted_status) {
-        this.retweeted_status = retweeted_status;
-    }
-
-    public String getCoordinates() {
+    public Object getCoordinates() {
         return coordinates;
     }
 
-    public void setCoordinates(String coordinates) {
+    public void setCoordinates(Object coordinates) {
         this.coordinates = coordinates;
     }
 
@@ -106,19 +76,19 @@ public class GetTweetsResponse {
         this.entities = entities;
     }
 
-    public String getIn_reply_to_user_id_str() {
+    public Object getIn_reply_to_user_id_str() {
         return in_reply_to_user_id_str;
     }
 
-    public void setIn_reply_to_user_id_str(String in_reply_to_user_id_str) {
+    public void setIn_reply_to_user_id_str(Object in_reply_to_user_id_str) {
         this.in_reply_to_user_id_str = in_reply_to_user_id_str;
     }
 
-    public String getContributors() {
+    public Object getContributors() {
         return contributors;
     }
 
-    public void setContributors(String contributors) {
+    public void setContributors(Object contributors) {
         this.contributors = contributors;
     }
 
@@ -138,11 +108,11 @@ public class GetTweetsResponse {
         this.retweet_count = retweet_count;
     }
 
-    public String getIn_reply_to_status_id_str() {
+    public Object getIn_reply_to_status_id_str() {
         return in_reply_to_status_id_str;
     }
 
-    public void setIn_reply_to_status_id_str(String in_reply_to_status_id_str) {
+    public void setIn_reply_to_status_id_str(Object in_reply_to_status_id_str) {
         this.in_reply_to_status_id_str = in_reply_to_status_id_str;
     }
 
@@ -154,11 +124,19 @@ public class GetTweetsResponse {
         this.id = id;
     }
 
-    public String getGeo() {
+    public Retweeted_status getRetweeted_status() {
+        return retweeted_status;
+    }
+
+    public void setRetweeted_status(Retweeted_status retweeted_status) {
+        this.retweeted_status = retweeted_status;
+    }
+
+    public Object getGeo() {
         return geo;
     }
 
-    public void setGeo(String geo) {
+    public void setGeo(Object geo) {
         this.geo = geo;
     }
 
@@ -178,19 +156,19 @@ public class GetTweetsResponse {
         this.possibly_sensitive = possibly_sensitive;
     }
 
-    public String getIn_reply_to_user_id() {
+    public Object getIn_reply_to_user_id() {
         return in_reply_to_user_id;
     }
 
-    public void setIn_reply_to_user_id(String in_reply_to_user_id) {
+    public void setIn_reply_to_user_id(Object in_reply_to_user_id) {
         this.in_reply_to_user_id = in_reply_to_user_id;
     }
 
-    public String getPlace() {
+    public Object getPlace() {
         return place;
     }
 
-    public void setPlace(String place) {
+    public void setPlace(Object place) {
         this.place = place;
     }
 
@@ -202,11 +180,11 @@ public class GetTweetsResponse {
         this.user = user;
     }
 
-    public String getIn_reply_to_screen_name() {
+    public Object getIn_reply_to_screen_name() {
         return in_reply_to_screen_name;
     }
 
-    public void setIn_reply_to_screen_name(String in_reply_to_screen_name) {
+    public void setIn_reply_to_screen_name(Object in_reply_to_screen_name) {
         this.in_reply_to_screen_name = in_reply_to_screen_name;
     }
 
@@ -218,11 +196,11 @@ public class GetTweetsResponse {
         this.source = source;
     }
 
-    public String getIn_reply_to_status_id() {
+    public Object getIn_reply_to_status_id() {
         return in_reply_to_status_id;
     }
 
-    public void setIn_reply_to_status_id(String in_reply_to_status_id) {
+    public void setIn_reply_to_status_id(Object in_reply_to_status_id) {
         this.in_reply_to_status_id = in_reply_to_status_id;
     }
 }

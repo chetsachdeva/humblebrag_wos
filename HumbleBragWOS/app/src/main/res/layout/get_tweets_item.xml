@@ -25,16 +25,29 @@
 
             <TextView
                 android:id="@+id/tv_name"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="4dp"
                 android:layout_toRightOf="@id/sdv_pp"
                 android:ellipsize="end"
                 android:inputType="none"
-                android:text="Name"
+                android:text="@string/name"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_screenName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="6dp"
+                android:layout_toRightOf="@id/tv_name"
+                android:ellipsize="end"
+                android:inputType="none"
+                android:text="@string/screen_name"
+                android:textColor="@color/grey"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/tv_tweet"
@@ -46,7 +59,7 @@
                 android:layout_toRightOf="@id/sdv_pp"
                 android:ellipsize="end"
                 android:maxLines="3"
-                android:text="Tweet"
+                android:text="@string/tweet"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 

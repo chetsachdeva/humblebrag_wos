@@ -3,5 +3,8 @@
 
     <string name="error_network">Internet not available</string>
     <string name="error_no_response">No data returned</string>
+    <string name="name">Name</string>
+    <string name="screen_name">Screen Name</string>
+    <string name="tweet">Tweet</string>
 
 </resources>
