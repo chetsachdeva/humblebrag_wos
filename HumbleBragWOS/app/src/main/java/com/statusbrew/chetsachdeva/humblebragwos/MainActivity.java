@@ -1,8 +1,13 @@
 package com.statusbrew.chetsachdeva.humblebragwos;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pixplicity.easyprefs.library.Prefs;
@@ -13,21 +18,32 @@ import com.statusbrew.chetsachdeva.humblebragwos.webapi.GetTokenAsyncTask;
 import com.statusbrew.chetsachdeva.humblebragwos.webapi.GetTokenListener;
 import com.statusbrew.chetsachdeva.humblebragwos.webapi.models.TwitterAuthToken;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity implements GetTokenListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
 
+    @Override
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        getAuthToken();
+    }
+
+    public void getAuthToken(){
         if (NetworkUtil.isConnected(this)) {
             if (Prefs.contains(Constants.AUTH_TOKEN)) {
                 openGetTweetsActivity();
             } else {
-               new GetTokenAsyncTask(this).execute();
+                new GetTokenAsyncTask(this).execute();
             }
         } else {
-            Toast.makeText(this, getString(R.string.error_network), Toast.LENGTH_SHORT);
+            Toast.makeText(MainActivity.this, getString(R.string.error_network), Toast.LENGTH_SHORT).show();
         }
     }
 

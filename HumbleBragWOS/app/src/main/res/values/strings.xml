@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">HumbleBragWOS</string>
+    <string name="hb_wos">Humblebrag Wall Of Shame</string>
+    <string name="hb_retweeted">Humblebrag Retweeted</string>
 
     <string name="error_network">Internet not available</string>
     <string name="error_no_response">No data returned</string>

@@ -5,11 +5,11 @@
     android:layout_height="wrap_content"
     tools:context="com.statusbrew.chetsachdeva.humblebragwos.MainActivity">
 
-   <TextView
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:text="Welcome"
-       android:textColor="@color/colorPrimary"
-       android:gravity="center"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_bg_splash"
+        android:scaleType="centerCrop"
+        />
 
-    </RelativeLayout>
+</RelativeLayout>

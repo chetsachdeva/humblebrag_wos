@@ -19,7 +19,6 @@ public class HttpUtil {
     public String getHttpResponse(HttpRequestBase request) {
         String result = null;
         try {
-
             DefaultHttpClient httpClient = new DefaultHttpClient(new BasicHttpParams());
             HttpResponse httpResponse = httpClient.execute(request);
             int statusCode = httpResponse.getStatusLine().getStatusCode();

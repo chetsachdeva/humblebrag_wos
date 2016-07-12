@@ -7,14 +7,14 @@
     <android.support.v7.widget.CardView
         android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_margin="4dp"
-        app:cardCornerRadius="4dp"
+        android:layout_height="@dimen/dim_80"
+        android:layout_margin="@dimen/margin_4"
+        app:cardCornerRadius="@dimen/margin_4"
         >
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp">
+            android:layout_height="@dimen/dim_80">
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/sdv_pp"
@@ -27,41 +27,41 @@
                 android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginLeft="@dimen/margin_8"
+                android:layout_marginTop="@dimen/margin_4"
                 android:layout_toRightOf="@id/sdv_pp"
                 android:ellipsize="end"
                 android:inputType="none"
                 android:text="@string/name"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="@dimen/text_16" />
 
             <TextView
                 android:id="@+id/tv_screenName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="6dp"
+                android:layout_marginLeft="@dimen/margin_8"
+                android:layout_marginTop="@dimen/margin_4"
                 android:layout_toRightOf="@id/tv_name"
                 android:ellipsize="end"
                 android:inputType="none"
                 android:text="@string/screen_name"
                 android:textColor="@color/grey"
-                android:textSize="12sp" />
+                android:textSize="@dimen/text_14" />
 
             <TextView
                 android:id="@+id/tv_tweet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_name"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginLeft="@dimen/margin_8"
+                android:layout_marginTop="@dimen/margin_4"
                 android:layout_toRightOf="@id/sdv_pp"
                 android:ellipsize="end"
                 android:maxLines="3"
                 android:text="@string/tweet"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="@dimen/text_14" />
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>

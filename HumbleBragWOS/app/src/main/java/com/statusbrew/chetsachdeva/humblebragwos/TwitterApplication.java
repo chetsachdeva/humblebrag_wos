@@ -17,12 +17,13 @@ public class TwitterApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        SystemClock.sleep(TimeUnit.SECONDS.toMillis(3));
 
         new Prefs.Builder()                       // Initialize Prefs
                 .setContext(getApplicationContext())
                 .build();
-        Fresco.initialize(this);
-        new RestClient(getApplicationContext()); // Initialise REST client
+        Fresco.initialize(this);                  // Initialize Fresco
+        new RestClient(getApplicationContext());  // Initialise REST client
+
+        SystemClock.sleep(TimeUnit.SECONDS.toMillis(3));
     }
 }
