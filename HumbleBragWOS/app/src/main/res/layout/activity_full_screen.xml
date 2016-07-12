@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
     tools:context=".show_image.FullScreenActivity">
 
         <android.support.v4.view.ViewPager
-            android:id="@+id/pager"
+            android:id="@+id/vp_images"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
