@@ -1,6 +1,7 @@
 package com.statusbrew.chetsachdeva.humblebragwos;
 
 import android.content.Intent;
+import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,8 @@ import com.statusbrew.chetsachdeva.humblebragwos.utils.NetworkUtil;
 import com.statusbrew.chetsachdeva.humblebragwos.webapi.GetTokenAsyncTask;
 import com.statusbrew.chetsachdeva.humblebragwos.webapi.GetTokenListener;
 import com.statusbrew.chetsachdeva.humblebragwos.webapi.models.TwitterAuthToken;
+
+import java.util.concurrent.TimeUnit;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -38,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements GetTokenListener 
     public void getAuthToken(){
         if (NetworkUtil.isConnected(this)) {
             if (Prefs.contains(Constants.AUTH_TOKEN)) {
+                SystemClock.sleep(TimeUnit.SECONDS.toMillis(3));
                 openGetTweetsActivity();
             } else {
                 new GetTokenAsyncTask(this).execute();
@@ -48,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements GetTokenListener 
     }
 
     public void openGetTweetsActivity() {
+        SystemClock.sleep(TimeUnit.SECONDS.toMillis(3));
         startActivity(new Intent(this, GetTweetsActivity.class));
         this.finish();
     }

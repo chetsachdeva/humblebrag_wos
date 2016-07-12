@@ -23,7 +23,5 @@ public class TwitterApplication extends Application {
                 .build();
         Fresco.initialize(this);                  // Initialize Fresco
         new RestClient(getApplicationContext());  // Initialise REST client
-
-        SystemClock.sleep(TimeUnit.SECONDS.toMillis(3));
     }
 }
