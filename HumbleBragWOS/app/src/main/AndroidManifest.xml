@@ -19,7 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".get_tweets.GetTweetsActivity"></activity>
+        <activity android:name=".get_tweets.GetTweetsActivity" />
+        <activity android:name=".show_image.FullScreenActivity"></activity>
     </application>
 
 </manifest>

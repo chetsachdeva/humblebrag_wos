@@ -1,5 +1,6 @@
 package com.statusbrew.chetsachdeva.humblebragwos.get_tweets;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,6 +9,7 @@ import android.widget.Toast;
 
 import com.statusbrew.chetsachdeva.humblebragwos.R;
 import com.statusbrew.chetsachdeva.humblebragwos.adapters.GetTweetsAdapter;
+import com.statusbrew.chetsachdeva.humblebragwos.show_image.FullScreenActivity;
 import com.statusbrew.chetsachdeva.humblebragwos.webapi.models.get_tweets.GetTweetsResponse;
 import com.statusbrew.chetsachdeva.humblebragwos.webapi.models.get_tweets.Retweeted_status;
 import com.statusbrew.chetsachdeva.humblebragwos.widgets.progress.CustomProgressDialog;
@@ -100,8 +102,24 @@ public class GetTweetsActivity extends AppCompatActivity implements GetTweetsCon
         if (twitterTweetsList.size() <= MAX_COUNT) {
             currentPage++;
             presenter.getTweetsForScreenName(twitterScreenName, 10, currentPage);
-        }else{
+        } else {
             Toast.makeText(GetTweetsActivity.this, "You have made a century!", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onImageClicked(int position) {
+        Intent intent = new Intent(this, FullScreenActivity.class);
+        intent.putExtra("position", position);
+        intent.putExtra("imagesList", getImagesList());
+        startActivity(intent);
+    }
+
+    public ArrayList<String> getImagesList() {
+        ArrayList<String> imagesList = new ArrayList<>();
+        for (Retweeted_status tweets : twitterTweetsList) {
+            imagesList.add(tweets.getUser().getOriginal_profile_image_url());
+        }
+        return imagesList;
     }
 }

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--Custom Text View-->
-    <declare-styleable name="CustomTextView">
-        <attr name="typeface" format="string" />
-    </declare-styleable>
 
     <!--Progress Wheel-->
     <declare-styleable name="ProgressWheel">
@@ -19,16 +15,4 @@
         <attr name="matProg_linearProgress" format="boolean" />
     </declare-styleable>
 
-    <!--Range Seek bar-->
-    <declare-styleable name="RangeSeekBar">
-        <attr name="absoluteMinValue" format="integer|float" />
-        <attr name="absoluteMaxValue" format="integer|float" />
-        <attr name="singleThumb" format="boolean" />
-        <attr name="stepSize" format="integer" />
-    </declare-styleable>
-
-    <declare-styleable name="CircleAnimatedCheckBox">
-        <attr name="cb_color" format="color" />
-        <attr name="cb_pressed_ring_width" format="dimension" />
-    </declare-styleable>
 </resources>
