@@ -42,7 +42,7 @@ public class User {
     @Expose
     Integer utc_offset;
     @Expose
-    Integer id;
+    Long id;
     @Expose
     Boolean profile_use_background_image;
     @Expose
@@ -56,7 +56,7 @@ public class User {
     @Expose
     Boolean _protected;
     @Expose
-    String notifications;
+    Object notifications;
     @Expose
     String profile_background_image_url_https;
     @Expose
@@ -78,11 +78,19 @@ public class User {
     @Expose
     Integer friends_count;
     @Expose
-    String following;
+    Object following;
     @Expose
     Boolean show_all_inline_media;
     @Expose
     String screen_name;
+
+    public String getScreen_name() {
+        return screen_name;
+    }
+
+    public void setScreen_name(String screen_name) {
+        this.screen_name = screen_name;
+    }
 
     public String getProfile_sidebar_fill_color() {
         return profile_sidebar_fill_color;
@@ -118,6 +126,12 @@ public class User {
 
     public String getProfile_image_url() {
         return profile_image_url;
+    }
+    public String getBigger_profile_image_url() {
+        return profile_image_url.replace("normal","bigger");
+    }
+    public String getOriginal_profile_image_url() {
+        return profile_image_url.replace("_normal","");
     }
 
     public void setProfile_image_url(String profile_image_url) {
@@ -220,19 +234,12 @@ public class User {
         this.profile_image_url_https = profile_image_url_https;
     }
 
-    public Integer getUtc_offset() {
-        return utc_offset;
-    }
 
-    public void setUtc_offset(Integer utc_offset) {
-        this.utc_offset = utc_offset;
-    }
-
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -244,11 +251,6 @@ public class User {
         this.profile_use_background_image = profile_use_background_image;
     }
 
-    public Integer getListed_count() {
-        return listed_count;
-    }
 
-    public void setListed_count(Integer listed_count) {
-        this.listed_count = listed_count;
-    }
+
 }

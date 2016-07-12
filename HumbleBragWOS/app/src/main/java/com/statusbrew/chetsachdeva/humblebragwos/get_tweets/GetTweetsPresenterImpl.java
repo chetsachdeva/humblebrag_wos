@@ -1,7 +1,6 @@
 package com.statusbrew.chetsachdeva.humblebragwos.get_tweets;
 
 import com.statusbrew.chetsachdeva.humblebragwos.webapi.models.get_tweets.GetTweetsResponse;
-import com.statusbrew.chetsachdeva.humblebragwos.webapi.models.get_tweets.TwitterTweet;
 
 import java.util.ArrayList;
 
@@ -19,16 +18,16 @@ public class GetTweetsPresenterImpl implements GetTweetsContract.Presenter, GetT
     }
 
     @Override
-    public void getTweetsForScreenName(String screenName, int count) {
+    public void getTweetsForScreenName(String screenName, int count, int currentPage) {
         view.showProgress();
-        contract.getTweetsForScreenName(screenName, 10, this);
+        contract.getTweetsForScreenName(screenName, 10, currentPage, this);
     }
 
 
     @Override
-    public void onGetTweetsSuccess(ArrayList<GetTweetsResponse> twitterTweets) {
+    public void onGetTweetsSuccess(ArrayList<GetTweetsResponse> getTweetsResponseArrayList) {
         view.hideProgress();
-        view.onGetTweetsSuccess(twitterTweets);
+        view.onGetTweetsSuccess(getTweetsResponseArrayList);
     }
 
     @Override

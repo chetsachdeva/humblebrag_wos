@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.statusbrew.chetsachdeva.humblebragwos.R;
-import com.statusbrew.chetsachdeva.humblebragwos.webapi.models.get_tweets.GetTweetsResponse;
-import com.statusbrew.chetsachdeva.humblebragwos.webapi.models.get_tweets.TwitterTweet;
+import com.statusbrew.chetsachdeva.humblebragwos.get_tweets.GetTweetsContract;
+import com.statusbrew.chetsachdeva.humblebragwos.webapi.models.get_tweets.Retweeted_status;
 
 import java.util.ArrayList;
 
@@ -21,10 +21,12 @@ import butterknife.ButterKnife;
 public class GetTweetsAdapter extends RecyclerView.Adapter<GetTweetsAdapter.ViewHolder> {
 
     Context context;
-    ArrayList<GetTweetsResponse> twitterTweetList;
+    GetTweetsContract.View view;
+    ArrayList<Retweeted_status> twitterTweetList;
 
-    public GetTweetsAdapter(Context context, ArrayList<GetTweetsResponse> twitterTweetList) {
+    public GetTweetsAdapter(Context context, GetTweetsContract.View view, ArrayList<Retweeted_status> twitterTweetList) {
         this.context = context;
+        this.view = view;
         this.twitterTweetList = twitterTweetList;
     }
 
@@ -38,23 +40,41 @@ public class GetTweetsAdapter extends RecyclerView.Adapter<GetTweetsAdapter.View
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.tvName.setTag(position);
-        GetTweetsResponse tweetsResponse = twitterTweetList.get(position);
-        if (null != tweetsResponse) {
-            if (null != tweetsResponse.getRetweeted_status()) {
-                if (null != tweetsResponse.getRetweeted_status().getText()) {
-                    holder.tvTweet.setText(tweetsResponse.getRetweeted_status().getText());
+        Retweeted_status retweetedStatus = twitterTweetList.get(position);
+        if (null != retweetedStatus) {
+            if (null != retweetedStatus.getText()) {
+                holder.tvTweet.setText(retweetedStatus.getText());
+            } else {
+                holder.tvTweet.setText(R.string.tweet);
+            }
+            if (null != retweetedStatus.getUser()) {
+                if (null != retweetedStatus.getUser().getName()) {
+                    holder.tvName.setText(retweetedStatus.getUser().getName());
+                } else {
+                    holder.tvName.setText(R.string.name);
                 }
-                if (null != tweetsResponse.getRetweeted_status().getUser()) {
-                    if (null != tweetsResponse.getRetweeted_status().getUser().getName()) {
-                        holder.tvName.setText(tweetsResponse.getRetweeted_status().getUser().getName());
-                    }
-                    if (null != tweetsResponse.getRetweeted_status().getUser().getProfile_image_url()) {
-                        holder.sdvPP.setImageURI(Uri.parse(tweetsResponse.getRetweeted_status().getUser().getProfile_image_url()));
-                    }
+                if (null != retweetedStatus.getUser().getScreen_name()) {
+                    holder.tvScreenName.setText("@"+retweetedStatus.getUser().getScreen_name());
+                } else {
+                    holder.tvScreenName.setText("");
+                }
+                if (null != retweetedStatus.getUser().getProfile_image_url()) {
+                    holder.sdvPP.setImageURI(Uri.parse(retweetedStatus.getUser().getBigger_profile_image_url()));
+                } else {
+                    holder.sdvPP.setImageURI(Uri.parse("res:///" + R.drawable.ic_placeholder));
                 }
             }
+        } else {
+            holder.tvName.setText(R.string.name);
+            holder.tvTweet.setText(R.string.tweet);
+            holder.sdvPP.setImageURI(Uri.parse("res:///" + R.drawable.ic_placeholder));
+            holder.tvScreenName.setText("");
+        }
+        if ((position >= getItemCount() - 1)) {
+            view.onLoadMore();
         }
     }
+
 
     @Override
     public int getItemCount() {
@@ -67,6 +87,8 @@ public class GetTweetsAdapter extends RecyclerView.Adapter<GetTweetsAdapter.View
         SimpleDraweeView sdvPP;
         @Bind(R.id.tv_name)
         TextView tvName;
+        @Bind(R.id.tv_screenName)
+        TextView tvScreenName;
         @Bind(R.id.tv_tweet)
         TextView tvTweet;
 
