@@ -19,7 +19,7 @@ public class FullScreenActivity extends AppCompatActivity {
     ViewPager vpImages;
 
     ArrayList<String> imagesList;
-    int position;
+    int position=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

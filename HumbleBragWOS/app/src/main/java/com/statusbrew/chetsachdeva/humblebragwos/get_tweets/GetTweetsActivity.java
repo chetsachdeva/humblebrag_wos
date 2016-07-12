@@ -1,10 +1,15 @@
 package com.statusbrew.chetsachdeva.humblebragwos.get_tweets;
 
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.statusbrew.chetsachdeva.humblebragwos.R;
@@ -23,6 +28,10 @@ public class GetTweetsActivity extends AppCompatActivity implements GetTweetsCon
 
     @Bind(R.id.rv_tweets)
     RecyclerView rvTweets;
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
+    @Bind(R.id.tv_toolbar_title)
+    TextView tvToolbarTitle;
 
     ArrayList<Retweeted_status> twitterTweetsList;
     GetTweetsAdapter getTweetsAdapter;
@@ -30,7 +39,6 @@ public class GetTweetsActivity extends AppCompatActivity implements GetTweetsCon
 
     CustomProgressDialog progressDialog;
     final String twitterScreenName = "humblebrag";
-
     final int MAX_COUNT = 100;
 
     int currentPage = 1;
@@ -40,11 +48,20 @@ public class GetTweetsActivity extends AppCompatActivity implements GetTweetsCon
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_tweets);
         ButterKnife.bind(this);
-        presenter = new GetTweetsPresenterImpl(this);
 
+        setToolbar();
         setRecyclerView();
 
+        presenter = new GetTweetsPresenterImpl(this);
         presenter.getTweetsForScreenName(twitterScreenName, 10, currentPage);
+    }
+
+    public void setToolbar() {
+        if (null != toolbar) {
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setIcon(R.drawable.ic_navigation_icon);
+            tvToolbarTitle.setText(R.string.hb_retweeted);
+        }
     }
 
     public void setRecyclerView() {
@@ -118,7 +135,9 @@ public class GetTweetsActivity extends AppCompatActivity implements GetTweetsCon
     public ArrayList<String> getImagesList() {
         ArrayList<String> imagesList = new ArrayList<>();
         for (Retweeted_status tweets : twitterTweetsList) {
-            imagesList.add(tweets.getUser().getOriginal_profile_image_url());
+            if(null!=tweets.getUser().getProfile_image_url()) {
+                imagesList.add(tweets.getUser().getOriginal_profile_image_url());
+            }
         }
         return imagesList;
     }

@@ -53,7 +53,7 @@ public class FullScreenImageAdapter extends PagerAdapter {
 
         GenericDraweeHierarchy hierarchy = new GenericDraweeHierarchyBuilder(context.getResources())
                 .setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER)
-                .setProgressBarImage(ContextCompat.getDrawable(context, R.drawable.ic_placeholder))
+                .setProgressBarImage(ContextCompat.getDrawable(context, R.drawable.ic_loading))
                 .build();
 
         sdvImage.setController(ctrl);
