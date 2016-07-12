@@ -11,20 +11,27 @@ public interface GetTweetsContract {
 
     void getTweetsForScreenName(String screenName, int count, int currentPage, Listener listener);
 
-    interface View{
+    interface View {
         void showProgress();
+
         void hideProgress();
+
         void onGetTweetsSuccess(ArrayList<GetTweetsResponse> twitterTweets);
+
         void onGetTweetsFailure(String message);
+
         void onLoadMore();
+
+        void onImageClicked(int position);
     }
 
-    interface Presenter{
+    interface Presenter {
         void getTweetsForScreenName(String screenName, int count, int currentPage);
     }
 
-    interface Listener{
+    interface Listener {
         void onGetTweetsSuccess(ArrayList<GetTweetsResponse> getTweetsResponseArrayList);
+
         void onGetTweetsFailure(String message);
     }
 }

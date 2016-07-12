@@ -54,12 +54,18 @@ public class GetTweetsAdapter extends RecyclerView.Adapter<GetTweetsAdapter.View
                     holder.tvName.setText(R.string.name);
                 }
                 if (null != retweetedStatus.getUser().getScreen_name()) {
-                    holder.tvScreenName.setText("@"+retweetedStatus.getUser().getScreen_name());
+                    holder.tvScreenName.setText("@" + retweetedStatus.getUser().getScreen_name());
                 } else {
                     holder.tvScreenName.setText("");
                 }
                 if (null != retweetedStatus.getUser().getProfile_image_url()) {
                     holder.sdvPP.setImageURI(Uri.parse(retweetedStatus.getUser().getBigger_profile_image_url()));
+                    holder.sdvPP.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            view.onImageClicked(position);
+                        }
+                    });
                 } else {
                     holder.sdvPP.setImageURI(Uri.parse("res:///" + R.drawable.ic_placeholder));
                 }
